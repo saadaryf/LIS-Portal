@@ -5,6 +5,7 @@ import Sidebar from './components/Layout/Sidebar';
 import Footer from './components/Layout/Footer';
 import Dashboard from './pages/Dashboard';
 import StudentManagement from './pages/StudentManagement';
+import FeeManagement from './pages/FeeManagement';
 import styles from './styles/layout.module.css';
 import './styles/global.css';
 
@@ -20,6 +21,7 @@ function App() {
               <Route path="/" element={<Navigate to="/dashboard" />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/students" element={<StudentManagement />} />
+              <Route path="/fees" element={<FeeManagement />} />
             </Routes>
           </main>
         </div>

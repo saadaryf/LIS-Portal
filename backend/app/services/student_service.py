@@ -1,14 +1,22 @@
 # backend/app/services/student_service.py
 from app.models.student import Student
+from app.models.fee import Fee  
 from app.utils.database import DatabaseConnection
+
 
 class StudentService:
     def __init__(self):
         db = DatabaseConnection().get_database()
         self.student_model = Student(db)
+        self.fee_model = Fee(db)
 
     def add_student(self, student_data):
-        return self.student_model.create_student(student_data)
+        student_id = self.student_model.create_student(student_data)
+
+        # Automatically create a fee document for the new student
+        self.fee_model.create_fee_for_student(student_id)
+
+        return student_id
 
     def get_student(self, student_id):
         return self.student_model.get_student_by_id(student_id)

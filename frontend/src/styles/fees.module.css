@@ -1,0 +1,129 @@
+/* Reuse color variables from students.module.css for consistent theming */
+:root {
+    --primary-color: #3498db;
+    --primary-color-dark: #2980b9;
+    --primary-color-light: #ecf6fc;
+    --secondary-color: #2ecc71;
+    --secondary-color-dark: #27ae60;
+    --error-color: #e74c3c;
+    --error-color-dark: #c0392b;
+    --text-color: #2c3e50;
+    --text-light: #7f8c8d;
+    --background-color: #f9fbfd;
+    --white: #ffffff;
+    --border-color: #ccd6e0;
+    --hover-shadow: rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+    --border-radius: 8px;
+}
+
+.feeManagement {
+    margin: 0 auto;
+    padding: 2rem;
+}
+.filterDropdown,
+.searchBar {
+    width: 100%;
+    padding: 10px;
+    border: 3px solid var(--primary-color-dark);
+    border-radius: 0.4rem;
+    outline: var(--primary-color);
+}
+
+.feeListTableWrapper {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 10px var(--hover-shadow);
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.feeList {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.feeList th,
+.feeList td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.feeList th {
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-weight: 600;
+}
+
+.feeList tr:nth-child(even) {
+    background-color: var(--primary-color-light);
+}
+
+.feeList tr:hover {
+    background-color: var(--primary-color-light);
+}
+
+.feeList td select,
+.feeList td input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.feeList td button {
+    margin-right: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.feeList td button:hover {
+    background-color: var(--secondary-color-dark);
+}
+
+.loadingMessage {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.filters {
+    width: 40%;
+    margin-left: 59%;
+    display: flex;
+    gap: 5px;
+    align-items: end;
+    margin-bottom: 5px;
+}
+
+.filterDropdown {
+    width: 40%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .feeManagement {
+        padding: 1rem;
+    }
+
+    .searchBar {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .feeList {
+        font-size: 0.9rem;
+    }
+
+    .feeList td, 
+    .feeList th {
+        padding: 0.5rem;
+    }
+}

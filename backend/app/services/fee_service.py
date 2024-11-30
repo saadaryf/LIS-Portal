@@ -7,12 +7,17 @@ class FeeService:
         db = DatabaseConnection().get_database()
         self.fee_model = Fee(db)
 
-    def record_fee_payment(self, payment_data):
-        # Add validation logic if needed
-        return self.fee_model.record_payment(payment_data)
+    def create_fee_for_student(self, student_id):
+        return self.fee_model.create_fee_for_student(student_id)
 
-    def get_student_payment_history(self, student_id):
-        return self.fee_model.get_student_payments(student_id)
+    def get_fee_by_student_id(self, student_id):
+        return self.fee_model.get_fee_by_student_id(student_id)
 
-    def get_overall_fee_summary(self):
-        return self.fee_model.get_payment_summary()
+    def update_fee(self, student_id, update_data):
+        return self.fee_model.update_fee(student_id, update_data)
+
+    def get_all_fees(self, skip=0, limit=100):
+        return self.fee_model.get_all_fees(skip, limit)
+    
+    def get_student_name_by_id(self, student_id):
+        return self.student_model.get_student_name_by_id(student_id)

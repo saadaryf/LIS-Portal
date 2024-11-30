@@ -5,18 +5,24 @@ from app.services.fee_service import FeeService
 fee_bp = Blueprint('fee', __name__)
 fee_service = FeeService()
 
-@fee_bp.route('/fees/record-payment', methods=['POST'])
-def record_payment():
-    payment_data = request.json
-    payment_id = fee_service.record_fee_payment(payment_data)
-    return jsonify({'payment_id': payment_id}), 201
+@fee_bp.route('/fees', methods=['GET'])
+def list_fees():
+    skip = request.args.get('skip', 0, type=int)
+    limit = request.args.get('limit', 100, type=int)
+    fees = fee_service.get_all_fees(skip, limit)
+    return jsonify(fees), 200
 
-@fee_bp.route('/fees/student/<student_id>', methods=['GET'])
-def get_student_payments(student_id):
-    payments = fee_service.get_student_payment_history(student_id)
-    return jsonify(payments), 200
+@fee_bp.route('/fees/<student_id>', methods=['GET'])
+def get_fee_by_student_id(student_id):
+    fee = fee_service.get_fee_by_student_id(student_id)
+    if fee:
+        return jsonify(fee), 200
+    return jsonify({'error': 'Fee record not found'}), 404
 
-@fee_bp.route('/fees/summary', methods=['GET'])
-def get_fee_summary():
-    summary = fee_service.get_overall_fee_summary()
-    return jsonify(summary), 200
+@fee_bp.route('/fees/<student_id>', methods=['PUT'])
+def update_fee(student_id):
+    update_data = request.json
+    updated_fee = fee_service.update_fee(student_id, update_data)
+    if updated_fee:
+        return jsonify(updated_fee), 200
+    return jsonify({'error': 'Fee record not found or update failed'}), 404

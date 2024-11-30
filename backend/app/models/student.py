@@ -5,6 +5,7 @@ from datetime import datetime
 class Student:
     def __init__(self, db):
         self.collection = db['students']
+        self.fees_collection = db['fees'] 
 
     def create_student(self, student_data):
         student_data['created_at'] = datetime.utcnow()
@@ -22,14 +23,18 @@ class Student:
         update_data.pop('_id', None)
         update_data['updated_at'] = datetime.utcnow()
         result = self.collection.update_one(
-            {'_id': ObjectId(student_id)}, 
+            {'_id': ObjectId(student_id)},
             {'$set': update_data}
         )
         return self.collection.find_one({'_id': ObjectId(student_id)})
 
     def delete_student(self, student_id):
         result = self.collection.delete_one({'_id': ObjectId(student_id)})
-        return result.deleted_count > 0
+        
+        if result.deleted_count > 0:
+            self.fees_collection.delete_one({'student_id': student_id})
+            return True
+        return False
 
     def get_all_students(self, skip=0, limit=100):
         students = list(self.collection.find().skip(skip).limit(limit))

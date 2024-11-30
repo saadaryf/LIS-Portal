@@ -65,10 +65,10 @@ const StudentManagement = () => {
         setIsEditing(true);
     };
 
-    const handleDelete = async (studentId) => {
+    const handleDelete = async (student_id) => {
         try {
-            await deleteStudent(studentId);
-            setStudents((prev) => prev.filter((student) => student._id !== studentId));
+            await deleteStudent(student_id);
+            setStudents((prev) => prev.filter((student) => student._id !== student_id));
         } catch (error) {
             console.error('Error deleting student:', error);
         }

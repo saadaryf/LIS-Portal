@@ -1,0 +1,151 @@
+.receiptContainer {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: auto;
+    padding: 24px;
+}
+
+.receiptWrapper {
+    border: 2px solid black;
+    padding: 24px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.header img {
+    height: 80px;
+}
+
+.headerInfo {
+    text-align: right;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.dateInfo {
+    font-size: 14px;
+}
+
+.detailsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.detailsGrid div {
+    font-size: 14px;
+}
+
+.detailsGrid h2 {
+    font-weight: bold;
+}
+
+.feeTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+}
+
+
+.feeTable th,
+.feeTable td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.feeTable th {
+    background-color: #f0f0f0;
+}
+
+.textRight {
+    text-align: right;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.paymentMethods {
+    margin-bottom: 24px;
+}
+
+.paymentMethods h2 {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.paymentMethods div {
+    text-align: center;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #ddd;
+}
+
+.viewButton {
+    background-color: #3b82f6;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.downloadButton {
+    background-color: #3b82f6;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.banks {
+    display: flex;
+    justify-content: space-around;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 101;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modalContent {
+    background-color: white;
+    padding: 24px;
+    border-radius: 16px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.mb4{
+    display: flex;
+    justify-content: end;
+}
+
+.closeButton{
+    font-size: 1.2rem;
+}
+

@@ -14,6 +14,7 @@ const Sidebar = () => {
                 <Link to="/students" className={isActive('/students')}>Student Management</Link>
                 <Link to="/fees" className={isActive('/fees')}>Fee Management</Link>
                 <Link to="/system-benefits" className={isActive('/system-benefits')}>System Benefits</Link>
+                <Link to="/how-to-use" className={isActive('/how-to-use')}>How to Use</Link>
             </nav>
         </aside>
     );

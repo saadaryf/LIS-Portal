@@ -1,3 +1,4 @@
+// frontend\src\components\Students\StudentList.js
 import React from 'react';
 import styles from '../../styles/students.module.css';
 
