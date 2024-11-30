@@ -17,3 +17,4 @@ def create_app():
     app.register_blueprint(fee_bp, url_prefix='/api')
 
     return app
+
