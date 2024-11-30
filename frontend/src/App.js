@@ -1,19 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Layout/Header';
+import Sidebar from './components/Layout/Sidebar';
+import Footer from './components/Layout/Footer';
+import Dashboard from './pages/Dashboard';
+import StudentManagement from './pages/StudentManagement';
+import styles from './styles/layout.module.css';
+import './styles/global.css';
 
 function App() {
-  const [message, setMessage] = useState("");
-
-  const API_URL = process.env.REACT_APP_API_URL;
-  console.log("api url", API_URL);
-
-  useEffect(() => {
-    fetch(`${API_URL}/api/hello`)
-      .then((response) => response.json())
-      .then((data) => setMessage(data.message))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, [API_URL]);
-
-  return <div>{message}</div>;
+    return (
+        <Router>
+            <div className={styles.appContainer}>
+                <Header />
+                <div className={styles.mainContent}>
+                    <Sidebar />
+                    <main className={styles.pageContent}>
+                        <Routes>
+                            <Route path="/" element={<Dashboard />} />
+                            <Route path="/students" element={<StudentManagement />} />
+                        </Routes>
+                    </main>
+                </div>
+                <Footer />
+            </div>
+        </Router>
+    );
 }
 
 export default App;

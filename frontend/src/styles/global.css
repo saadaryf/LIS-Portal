@@ -1,0 +1,83 @@
+/* frontend/src/styles/global.css */
+:root {
+    --primary-color: #0066CC;
+    --secondary-color: #4CAF50;
+    --text-color: #333;
+    --background-color: #F4F6F9;
+    --white: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+/* Add these styles to the existing layout.module.css */
+.appContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.mainContent {
+    display: flex;
+    flex-grow: 1;
+    margin-top: 80px;
+    /* Adjust based on header height */
+}
+
+.pageContent {
+    flex-grow: 1;
+    padding: 2rem;
+    margin-left: 250px;
+    /* Match sidebar width */
+    background-color: var(--background-color);
+    min-height: calc(100vh - 160px);
+    /* Subtract header and footer heights */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .mainContent {
+        flex-direction: column;
+        margin-top: 120px;
+        /* Adjusted for stacked header */
+    }
+
+    .pageContent {
+        margin-left: 0;
+        padding: 1rem;
+    }
+}

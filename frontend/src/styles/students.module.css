@@ -1,0 +1,239 @@
+/* Root styles for consistent design and theme */
+:root {
+    --primary-color: #3498db;
+    --primary-color-dark: #2980b9;
+    --primary-color-light: #ecf6fc;
+    --secondary-color: #2ecc71;
+    --secondary-color-dark: #27ae60;
+    --error-color: #e74c3c;
+    --error-color-dark: #c0392b;
+    --text-color: #2c3e50;
+    --text-light: #7f8c8d;
+    --background-color: #f9fbfd;
+    --white: #ffffff;
+    --border-color: #ccd6e0;
+    --hover-shadow: rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+    --border-radius: 8px;
+}
+
+/* Global reset and base styling */
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Page Title */
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+/* Main Layout */
+.studentManagement {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+/* Form Section Styling */
+.studentForm {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 10px var(--hover-shadow);
+    transition: box-shadow var(--transition-speed), transform var(--transition-speed);
+}
+
+.studentForm:hover {
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.studentForm input {
+    padding: 0.9rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--white);
+    color: var(--text-color);
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+    border-radius: var(--border-radius);
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.studentForm input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: var(--primary-color-light);
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+}
+
+.studentForm button {
+    padding: 0.8rem 1.5rem;
+    font-weight: 600;
+    color: var(--white);
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+.studentForm button:hover {
+    background-color: var(--secondary-color-dark);
+    box-shadow: 0 4px 8px var(--hover-shadow);
+}
+
+.studentForm button:disabled {
+    background-color: var(--border-color);
+    cursor: not-allowed;
+}
+
+/* Student List Section */
+.studentList {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 10px var(--hover-shadow);
+    transition: box-shadow var(--transition-speed);
+    overflow-y: auto;
+    max-height: 70vh;
+}
+
+.studentListTableWrapper {
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+.studentList table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    text-align: left;
+    min-width: 100%;
+}
+
+.studentList th,
+.studentList td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.studentList td:last-child {
+    gap: 0.5rem;
+    display: flex;
+}
+
+.studentList th {
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-weight: 600;
+}
+
+.studentList tr:nth-child(even) {
+    background-color: var(--primary-color-light);
+}
+
+.studentList tr:hover {
+    background-color: var(--primary-color-light);
+    cursor: pointer;
+}
+
+.studentList td button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    color: var(--white);
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.studentList td button:first-child {
+    background-color: var(--primary-color);
+}
+
+.studentList td button:first-child:hover {
+    background-color: var(--primary-color-dark);
+}
+
+.studentList td button:last-child {
+    background-color: var(--error-color);
+}
+
+.studentList td button:last-child:hover {
+    background-color: var(--error-color-dark);
+}
+
+.searchBar {
+    width: 40%;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-left: 59%;
+    border: 3px solid #2980b9;
+    border-radius: 0.4rem;
+    outline: #2980b9;
+}
+
+.highlighted {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .studentManagement {
+        grid-template-columns: 1fr 2fr;
+        align-items: start;
+    }
+
+    .studentForm {
+        max-width: 100%;
+    }
+
+    .studentList {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .studentForm,
+    .studentList {
+        padding: 1.5rem;
+    }
+
+    .studentForm input,
+    .studentForm button {
+        font-size: 0.9rem;
+    }
+
+    .studentList table {
+        font-size: 0.9rem;
+    }
+
+    .studentList td:last-child {
+        flex-direction: column;
+    }
+}

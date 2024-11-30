@@ -1,11 +1,22 @@
+# backend/app/__init__.py
 from flask import Flask
 from flask_cors import CORS
+from config.settings import SECRET_KEY, DEBUG
+from app.routes.student_routes import student_bp
+from app.routes.fee_routes import fee_bp
 
-app = Flask(__name__)
-CORS(app)
+def create_app():
+    app = Flask(__name__)
+    CORS(app)  
+    
+    app.config['SECRET_KEY'] = SECRET_KEY
+    
+    # Register blueprints
+    app.register_blueprint(student_bp, url_prefix='/api')
+    app.register_blueprint(fee_bp, url_prefix='/api')
+    
+    return app
 
-
-@app.route('/api/hello', methods=["GET"])
-def hello():
-    return {"message": "Hello from Flask!"}
-
+# if __name__ == "__main__":
+#     app = create_app()
+#     app.run(debug=True)

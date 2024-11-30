@@ -1,0 +1,178 @@
+/* frontend/src/styles/layout.module.css */
+:root {
+    /* Color Palette */
+    --primary-color: #1A73E8;
+    --secondary-color: #34A853;
+    --background-color: #F5F5F5;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --white: #FFFFFF;
+    --border-color: #E0E0E0;
+    
+    /* Typography */
+    --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    --font-size-base: 16px;
+    --line-height-base: 1.6;
+}
+
+/* Global Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--text-primary);
+    background-color: var(--background-color);
+}
+
+/* Header Styles */
+.header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transition: background-color 0.3s ease;
+}
+
+.logo {
+    height: 60px;
+    object-fit: contain;
+    margin-right: 1.5rem;
+    border-radius: 0.3rem;
+}
+
+.header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--white);
+}
+
+.header nav button {
+    background-color: var(--white);
+    color: var(--primary-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.header nav button:hover {
+    background-color: var(--background-color);
+    transform: scale(1.05);
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: var(--white);
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding-top: 100px;
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    z-index: 50;
+    transition: transform 0.3s ease;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar nav a {
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-weight: 500;
+    border-left: 4px solid transparent;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a:focus {
+    background-color: rgba(26, 115, 232, 0.1);
+    color: var(--primary-color);
+    border-left-color: var(--primary-color);
+}
+
+/* Footer Styles */
+.footer {
+    background-color: var(--text-primary);
+    color: var(--white);
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 0.875rem;
+    z-index: 100;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pageContent{
+    margin-top: 100px;
+    margin-left: 270px;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .header h1 {
+        margin-top: 0.5rem;
+        text-align: center;
+        font-size: 1.25rem;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        padding-top: 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar nav {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .sidebar nav a {
+        border-left: none;
+        border-bottom: 2px solid transparent;
+    }
+
+    .sidebar nav a:hover {
+        border-bottom-color: var(--primary-color);
+    }
+}
+
+/* Accessibility Enhancements */
+.header nav button:focus,
+.sidebar nav a:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
