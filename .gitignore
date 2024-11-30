@@ -1,0 +1,29 @@
+# Node.js dependencies (frontend)
+frontend/node_modules/
+
+# React build output (if deploying via Flask)
+frontend/build/
+
+# Python virtual environment (backend)
+backend/lisvenv/
+
+# Compiled Python files
+*.pyc
+__pycache__/
+
+# Environment variables
+.env
+
+# MacOS system files
+.DS_Store
+
+# Logs
+*.log
+
+# IDE specific files
+.vscode/
+.idea/
+
+# Flask cache
+backend/instance/
+backend/.pytest_cache/
