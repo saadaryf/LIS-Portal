@@ -4,6 +4,7 @@ from flask_cors import CORS
 from config.settings import SECRET_KEY, DEBUG
 from app.routes.student_routes import student_bp
 from app.routes.fee_routes import fee_bp
+from app.routes.dashboard_routes import dashboard_bp
 
 
 def create_app():
@@ -15,6 +16,7 @@ def create_app():
     # Register blueprints
     app.register_blueprint(student_bp, url_prefix='/api')
     app.register_blueprint(fee_bp, url_prefix='/api')
+    app.register_blueprint(dashboard_bp, url_prefix='/api')
 
     return app
 

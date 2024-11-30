@@ -2,8 +2,8 @@
 import React from 'react';
 import Header from '../components/Layout/Header';
 import Sidebar from '../components/Layout/Sidebar';
-// import StudentCountWidget from '../components/Dashboard/StudentCountWidget';
-// import FeeSummaryWidget from '../components/Dashboard/FeeSummaryWidget';
+import StudentCountWidget from '../components/Dashboard/StudentCountWidget';
+import FeeSummaryWidget from '../components/Dashboard/FeeSummaryWidget';
 
 const Dashboard = () => {
     return (
@@ -11,10 +11,10 @@ const Dashboard = () => {
             <Header />
             <Sidebar />
             <main className="container">
-                <h1>School Dashboard</h1>
-                <div className="dashboard-grid">
-                    {/* <StudentCountWidget /> */}
-                    {/* <FeeSummaryWidget /> */}
+                <h1>Analytics</h1>
+                <div className="dashboard-grid" style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+                    <StudentCountWidget />
+                    <FeeSummaryWidget />
                 </div>
             </main>
         </div>

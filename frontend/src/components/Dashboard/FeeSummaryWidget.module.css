@@ -1,0 +1,38 @@
+.widget {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 1.7rem;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.summaryContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.summaryBox {
+    text-align: center;
+    flex: 1;
+    padding: 10px;
+}
+
+.label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+}

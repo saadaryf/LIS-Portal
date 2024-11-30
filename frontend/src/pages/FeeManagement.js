@@ -66,8 +66,8 @@ const FeeManagement = () => {
                     className={styles.filterDropdown}
                 >
                     <option value="">All</option>
-                    <option value="pending">Pending</option>
-                    <option value="received">Received</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Received">Received</option>
                 </select>
             </div>
             {isLoading ? (
