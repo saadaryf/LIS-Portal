@@ -194,6 +194,12 @@ h1 {
     font-weight: bold;
 }
 
+.loadingMessage {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 20px;
+}
+
 /* Responsive Design */
 @media (min-width: 768px) {
     .studentManagement {

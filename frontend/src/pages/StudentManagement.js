@@ -14,15 +14,18 @@ const StudentManagement = () => {
         parentContact: '',
     });
     const [isEditing, setIsEditing] = useState(false);
-    const [searchQuery, setSearchQuery] = useState(''); // Search query state
+    const [searchQuery, setSearchQuery] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchStudents = async () => {
             try {
                 const data = await getStudents();
                 setStudents(data);
+                setIsLoading(false);
             } catch (error) {
                 console.error('Error fetching students:', error);
+                setIsLoading(false);
             }
         };
 
@@ -71,7 +74,6 @@ const StudentManagement = () => {
         }
     };
 
-    // Handle search input change
     const handleSearchChange = (event) => {
         setSearchQuery(event.target.value.toLowerCase());
     };
@@ -91,12 +93,16 @@ const StudentManagement = () => {
                     onSubmit={handleFormSubmit}
                     isEditing={isEditing}
                 />
-                <StudentList
-                    students={students}
-                    searchQuery={searchQuery}
-                    onEdit={handleEdit}
-                    onDelete={handleDelete}
-                />
+                {isLoading ? (
+                    <div className={styles.loadingMessage}>Loading Students...</div>
+                ) : (
+                    <StudentList
+                        students={students}
+                        searchQuery={searchQuery}
+                        onEdit={handleEdit}
+                        onDelete={handleDelete}
+                    />
+                )}
             </div>
         </>
     );
