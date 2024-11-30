@@ -1,21 +1,62 @@
 .widget {
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: all 0.3s ease;
+    transform: translateY(0px);
+}
+
+.widget:hover {
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
 }
 
 .title {
-    font-size: 1.7rem;
-    color: #333;
-    margin-bottom: 10px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.title:hover {
+    color: #0066CC; 
 }
 
 .count {
-    font-size: 32px;
-    font-weight: bold;
+    font-size: 38px;
+    font-weight: 700;
     color: #2c3e50;
+    text-align: center;
+    margin-top: 5px;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
+
+.count.loading {
+    font-size: 32px;
+    color: #0066CC;
+}
+
+.count:hover {
+    transform: scale(1.1); /* Slightly enlarges on hover */
+    color: #16a085; /* Color change on hover */
+}
+
+.widget::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 6px;
+    background-color: #0066CC;
+    border-radius: 3px;
+}
+

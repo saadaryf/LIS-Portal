@@ -6,6 +6,8 @@ import Footer from './components/Layout/Footer';
 import Dashboard from './pages/Dashboard';
 import StudentManagement from './pages/StudentManagement';
 import FeeManagement from './pages/FeeManagement';
+import SystemBenefits from './pages/SystemBenefits';
+import HowToUse from './pages/HowToUse';
 import styles from './styles/layout.module.css';
 import './styles/global.css';
 
@@ -22,6 +24,8 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/students" element={<StudentManagement />} />
               <Route path="/fees" element={<FeeManagement />} />
+              <Route path="/system-benefits" element={<SystemBenefits />} />
+              <Route path="/how-to-use" element={<HowToUse />} />
             </Routes>
           </main>
         </div>

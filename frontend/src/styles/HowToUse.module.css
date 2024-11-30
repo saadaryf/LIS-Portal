@@ -1,0 +1,65 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    margin-bottom: 70px;
+}
+
+.title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.stepList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stepItem {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.stepItem:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+.stepTitle {
+    font-size: 1.5rem;
+    color: #34495e;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.stepDescription {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+}
+
+.stepItem .receiptButton {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.stepItem .receiptButton:hover {
+    background-color: #2980b9;
+}
+
+@media (max-width: 768px) {
+    .stepList {
+        gap: 15px;
+    }
+}
