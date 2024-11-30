@@ -106,6 +106,7 @@ body {
     border-left: 4px solid transparent;
 }
 
+.sidebar nav a.active,
 .sidebar nav a:hover,
 .sidebar nav a:focus {
     background-color: rgba(26, 115, 232, 0.1);

@@ -25,7 +25,6 @@ The LIS Management Portal is a comprehensive web application designed to streaml
 ### Frontend Components
 - Modular React components
 - Custom CSS modules for styling
-- Responsive design
 - Reusable service layers for API interactions
 
 ### Backend Architecture
