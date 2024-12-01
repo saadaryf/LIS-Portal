@@ -1,22 +1,27 @@
-// frontend/src/pages/Dashboard.js
 import React from 'react';
 import Header from '../components/Layout/Header';
 import Sidebar from '../components/Layout/Sidebar';
 import StudentCountWidget from '../components/Dashboard/StudentCountWidget';
 import FeeSummaryWidget from '../components/Dashboard/FeeSummaryWidget';
+import styles from '../styles/Dashboard.module.css';
 
 const Dashboard = () => {
     return (
-        <div>
+        <div className={styles.dashboardLayout}>
             <Header />
-            <Sidebar />
-            <main className="container">
-                <h1>Analytics</h1>
-                <div className="dashboard-grid" style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-                    <StudentCountWidget />
-                    <FeeSummaryWidget />
-                </div>
-            </main>
+            <div className={styles.mainContent}>
+                <Sidebar />
+                <main className={styles.mainContainer}>
+                    <div className={styles.widgetGrid}>
+                        <div className={styles.widgetColumn}>
+                            <StudentCountWidget />
+                        </div>
+                        <div className={styles.widgetColumn}>
+                            <FeeSummaryWidget />
+                        </div>
+                    </div>
+                </main>
+            </div>
         </div>
     );
 };

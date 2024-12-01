@@ -13,7 +13,6 @@ const FeeManagement = () => {
         const fetchFees = async () => {
             try {
                 const data = await getFees();
-                console.log("fees data ", data);
                 setFees(data);
                 setIsLoading(false);
             } catch (error) {

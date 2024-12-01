@@ -1,5 +1,4 @@
 .benefitsContainer {
-    max-width: 900px;
     margin: 0 auto;
     padding: 30px 20px;
     margin-bottom: 70px;
@@ -13,8 +12,8 @@
 }
 
 .benefitList {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 20px;
 }
 
@@ -43,8 +42,8 @@
     color: #7f8c8d;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     .benefitList {
-        gap: 15px;
+        grid-template-columns: repeat(2, 1fr);
     }
 }

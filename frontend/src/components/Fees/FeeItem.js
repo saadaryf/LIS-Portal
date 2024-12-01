@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { updateFee } from '../../services/feeService';
 import FeeReceipt from './FeeReceipt';
+import FeeHistory from './FeeHistory';
 
 const FEE_TYPES = ['Tuition', 'Activity', 'Lab', 'Other'];
 const PAYMENT_STATUSES = ['Pending', 'Received'];
@@ -113,15 +114,20 @@ const FeeItem = ({ fee, onUpdate, onCancel }) => {
                 </select>
             </td>
             <td>
-                {!hasChanges && !isUpdating && (
-                    <FeeReceipt fee={fee} />
-                )}
-                {hasChanges && !isUpdating && (
-                    <div style={{ display: 'flex' }}>
-                        <button onClick={handleSave} disabled={isUpdating}>Save Changes</button>
-                        <button onClick={handleCancel} disabled={isUpdating}>Cancel</button>
-                    </div>
-                )}
+                <div style={{ display: 'flex', gap: '8px' }}>
+                    {!hasChanges && !isUpdating && (
+                        <>
+                            <FeeReceipt fee={fee} />
+                            <FeeHistory fee={fee} />
+                        </>
+                    )}
+                    {hasChanges && !isUpdating && (
+                        <div style={{ display: 'flex' }}>
+                            <button onClick={handleSave} disabled={isUpdating}>Save Changes</button>
+                            <button onClick={handleCancel} disabled={isUpdating}>Cancel</button>
+                        </div>
+                    )}
+                </div>
             </td>
         </tr>
     );

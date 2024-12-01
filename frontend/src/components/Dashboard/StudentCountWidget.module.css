@@ -1,62 +1,56 @@
+.widgetContainer {
+    perspective: 1000px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
 .widget {
-    background-color: #ffffff;
-    border-radius: 12px;
-    padding: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background: linear-gradient(145deg, #f0f4f8, #ffffff);
+    border-radius: 20px;
+    box-shadow: 
+        10px 10px 20px rgba(0, 0, 0, 0.075),
+        -10px -10px 20px rgba(255, 255, 255, 0.9);
+    padding: 30px;
     transition: all 0.3s ease;
-    transform: translateY(0px);
+    transform-style: preserve-3d;
+    text-align: center;
 }
 
 .widget:hover {
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
-    transform: translateY(-5px);
+    transform: rotateX(1deg) rotateY(-1deg);
+    box-shadow: 
+        15px 15px 25px rgba(0, 0, 0, 0.1),
+        -15px -15px 25px rgba(255, 255, 255, 0.95);
 }
 
 .title {
     font-size: 1.8rem;
-    font-weight: 600;
-    color: #34495e;
+    color: #2c3e50;
     margin-bottom: 20px;
     letter-spacing: 1px;
-    text-align: center;
-    transition: color 0.3s ease;
 }
 
-.title:hover {
-    color: #0066CC; 
+.studentCountContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.count {
-    font-size: 38px;
+.studentCount {
+    font-size: 4rem;
     font-weight: 700;
-    color: #2c3e50;
-    text-align: center;
-    margin-top: 5px;
-    transition: transform 0.3s ease, color 0.3s ease;
+    color: #3498db;
+    margin-bottom: 10px;
 }
 
-.count.loading {
-    font-size: 32px;
-    color: #0066CC;
+.studentSubtext {
+    font-size: 1rem;
+    color: #7f8c8d;
 }
 
-.count:hover {
-    transform: scale(1.1); /* Slightly enlarges on hover */
-    color: #16a085; /* Color change on hover */
+.loadingText {
+    font-size: 1.5rem;
+    color: #3498db;
 }
-
-.widget::before {
-    content: "";
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 6px;
-    background-color: #0066CC;
-    border-radius: 3px;
-}
-

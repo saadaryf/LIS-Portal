@@ -34,6 +34,13 @@ const SystemBenefits = () => {
                         With all data in one place, you can generate reports, track progress, and analyze trends without juggling multiple tools.
                     </p>
                 </div>
+
+                <div className={styles.benefitItem}>
+                    <h3 className={styles.benefitTitle}>Custom Branding</h3>
+                    <p className={styles.benefitDescription}>
+                        The portal is tailored with your school’s branding, ensuring a professional and personalized experience for users.
+                    </p>
+                </div>
             </div>
         </div>
     );

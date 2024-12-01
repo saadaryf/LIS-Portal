@@ -18,6 +18,7 @@ const StudentList = ({ students, searchQuery, onEdit, onDelete }) => {
                             <th>Name</th>
                             <th>Class</th>
                             <th>Section</th>
+                            <th>Contact</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -31,6 +32,7 @@ const StudentList = ({ students, searchQuery, onEdit, onDelete }) => {
                                     </td>
                                     <td>{student.class}</td>
                                     <td>{student.section}</td>
+                                    <td>{student.parentContact}</td>
                                     <td>
                                         <button onClick={() => onEdit(student)}>Edit</button>
                                         <button onClick={() => onDelete(student._id)}>Delete</button>

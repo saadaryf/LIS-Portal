@@ -16,13 +16,13 @@
     text-transform: uppercase;
 }
 
-.stepList {
+.featureList {
     display: grid;
     grid-template-columns: 1fr;
     gap: 25px;
 }
 
-.stepItem {
+.featureItem {
     background-color: #ffffff;
     border-radius: 8px;
     padding: 20px 25px;
@@ -30,70 +30,49 @@
     transition: all 0.3s ease;
 }
 
-.stepItem:hover {
+.featureItem:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     transform: translateY(-5px);
     background-color: #f9fbfd;
 }
 
-.stepTitle {
+.featureTitle {
     font-size: 1.6rem;
     color: #34495e;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-weight: 600;
 }
 
-.stepDescription {
+.featureDescription {
     font-size: 1.1rem;
     color: #7f8c8d;
-    line-height: 1.6;
-}
-
-.stepItem .receiptButton {
-    margin-top: 15px;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-.stepItem .receiptButton:hover {
-    background-color: #2980b9;
+    line-height: 1.4;
 }
 
 @media (min-width: 768px) {
-    .stepList {
+    .featureList {
         grid-template-columns: repeat(2, 1fr);
         gap: 30px;
     }
 }
 
 @media (max-width: 768px) {
-    .stepList {
-        gap: 20px;
+    .featureItem {
+        padding: 15px;
     }
 
-    .stepItem {
-        padding: 15px 20px;
+    .featureTitle {
+        font-size: 1.4rem;
+    }
+
+    .featureDescription {
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 480px) {
-    .title {
-        font-size: 1.8rem;
-    }
-
-    .stepDescription {
-        font-size: 1rem;
-    }
-
-    .stepItem .receiptButton {
-        padding: 8px 15px;
-        font-size: 0.9rem;
+    .featureDescription {
+        font-size: 0.95rem;
+        line-height: 1.3;
     }
 }

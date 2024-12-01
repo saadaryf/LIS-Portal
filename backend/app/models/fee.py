@@ -122,6 +122,7 @@ class Fee:
                 'due_date': fee['due_date'],
                 'payment_status': fee['payment_status'],
                 'student_id': fee['student_id'],
+                'fee_history': fee.get('fee_history', [])
             }
             formatted_fees.append(formatted_fee)
 

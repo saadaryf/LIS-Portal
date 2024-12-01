@@ -7,7 +7,7 @@ const Header = () => {
         <header className={styles.header}>
             <img src='/logo.png' alt="LIS Logo" className={styles.logo} />
             <div>
-                <h1>Lahore International School Management System <span>(Working Prototype)</span></h1>
+                <h1>Lahore International School Management System <span>(functional prototype)</span></h1>
             </div>
             <nav>
                 <button>Logout</button>

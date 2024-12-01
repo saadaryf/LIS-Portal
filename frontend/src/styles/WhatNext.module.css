@@ -49,23 +49,6 @@
     line-height: 1.6;
 }
 
-.stepItem .receiptButton {
-    margin-top: 15px;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-.stepItem .receiptButton:hover {
-    background-color: #2980b9;
-}
-
 @media (min-width: 768px) {
     .stepList {
         grid-template-columns: repeat(2, 1fr);
@@ -90,10 +73,5 @@
 
     .stepDescription {
         font-size: 1rem;
-    }
-
-    .stepItem .receiptButton {
-        padding: 8px 15px;
-        font-size: 0.9rem;
     }
 }

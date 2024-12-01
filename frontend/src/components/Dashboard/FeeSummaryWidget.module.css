@@ -1,73 +1,141 @@
+.widgetContainer {
+    perspective: 1000px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 .widget {
-    background-color: #ffffff;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
+    background: linear-gradient(145deg, #f0f4f8, #ffffff);
+    border-radius: 20px;
+    box-shadow: 
+        10px 10px 20px rgba(0, 0, 0, 0.075),
+        -10px -10px 20px rgba(255, 255, 255, 0.9);
+    padding: 30px;
     transition: all 0.3s ease;
+    transform-style: preserve-3d;
 }
 
 .widget:hover {
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
-    transform: translateY(-5px);
+    transform: rotateX(1deg) rotateY(-1deg);
+    box-shadow: 
+        15px 15px 25px rgba(0, 0, 0, 0.1),
+        -15px -15px 25px rgba(255, 255, 255, 0.95);
 }
 
 .title {
-    font-size: 1.8rem;
-    color: #2c3e50;
-    margin-bottom: 20px;
     text-align: center;
-    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
     letter-spacing: 1px;
 }
 
-.summaryContainer {
+.feeChartContainer {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
     gap: 20px;
-    flex-wrap: wrap;
 }
 
-.summaryBox {
-    background-color: #ecf0f1;
+.totalCollectedBox {
+    background-color: #e8f4f8;
     padding: 20px;
-    border-radius: 8px;
-    flex: 1;
-    min-width: 180px;
-    max-width: 250px;
+    border-radius: 10px;
     text-align: center;
-    transition: all 0.3s ease;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
-.summaryBox:hover {
-    background-color: #dfe6e9;
-    transform: scale(1.05);
-}
-
-.label {
-    font-size: 14px;
+.totalLabel {
+    font-size: 1rem;
     color: #7f8c8d;
     margin-bottom: 10px;
-    font-weight: 500;
 }
 
-.value {
-    font-size: 28px;
+.totalValue {
+    font-size: 2rem;
     font-weight: 700;
-    color: #34495e;
-    margin-top: 10px;
+    color: #3498db;
 }
 
-.value span {
+.circleCharts {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+
+.chartContainer {
+    position: relative;
+    width: 50%;
+    max-width: 250px;
+}
+
+.circularChart {
+    max-width: 100%;
+    max-height: 250px;
+}
+
+.circleBg {
+    fill: none;
+    stroke: #eaeaea;
+    stroke-width: 3;
+}
+
+.circle {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    animation: progress 1s ease-out forwards;
+}
+
+.chartLabel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.chartValue {
     font-size: 1.2rem;
-    font-weight: 500;
-    color: #7f8c8d;
+    font-weight: 700;
+    color: #2c3e50;
 }
 
-.loading {
+.chartText {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-top: 5px;
+}
+
+.chartPercentage {
+    font-size: 0.8rem;
+    color: #4CAF50;
+    margin-top: 5px;
+}
+
+.loadingState {
+    text-align: center;
     font-size: 1.5rem;
     color: #3498db;
-    text-align: center;
-    font-weight: 500;
+}
+
+@keyframes progress {
+    0% {
+        stroke-dasharray: 0 100;
+    }
+}
+
+@media (max-width: 600px) {
+    .circleCharts {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .chartContainer {
+        width: 100%;
+        max-width: 300px;
+    }
 }
