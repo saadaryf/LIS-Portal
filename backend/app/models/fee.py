@@ -49,53 +49,62 @@ class Fee:
         return fee
 
     def update_fee(self, student_id, update_data):
-        """
-        Update fee information for a student.
-        This method handles fee updates, recalculates the final fee, and tracks payment history.
-        """
         # Remove _id from update_data if present
         update_data.pop('_id', None)
         update_data['updated_at'] = datetime.utcnow()
 
-        # Check if payment_status is being changed from Pending to Received
-        if 'payment_status' in update_data:
-            current_record = self.collection.find_one(
-                {'student_id': student_id})
+        new_timestamp = datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S GMT')
 
-            # If payment status changes from Pending to Received, add payment history
-            if current_record['payment_status'] == 'Pending' and update_data['payment_status'] == 'Received':
-                fee_history_entry = {
-                    # Assuming final_fee is the paid amount
-                    'amount': current_record['final_fee'],
-                    # Use fee type from the current record
-                    'type': current_record['fee_type'],
-                    'timestamp': datetime.utcnow()
-                }
+        # Fetch the current record first
+        current_record = self.collection.find_one({'student_id': student_id})
 
-                # Add this payment entry to the fee_history array
-                self.collection.update_one(
-                    {'student_id': student_id},
-                    {
-                        '$push': {'fee_history': fee_history_entry},
-                        '$set': {**update_data, 'updated_at': datetime.utcnow()}
+        # Ensure fee_history exists and is a list
+        existing_history = current_record.get('fee_history', [])
+
+        # Check if payment_status is being changed to Received
+        if 'payment_status' in update_data and update_data['payment_status'] == 'Received':
+            # Prepare the new fee history entry
+            fee_history_entry = {
+                'amount': current_record.get('final_fee', 0),
+                'type': current_record.get('fee_type', 'Unknown'),
+                'timestamp': new_timestamp
+            }
+
+            # Update operations
+            update_operations = {
+                '$push': {
+                    'fee_history': fee_history_entry
+                },
+                '$set': {key: value for key, value in update_data.items() if key != 'fee_history'}
+            }
+
+            # Perform the update
+            result = self.collection.update_one(
+                {'student_id': student_id},
+                update_operations
+            )
+
+        else:
+            # If not changing to Received, perform a regular update
+            result = self.collection.update_one(
+                {'student_id': student_id},
+                {
+                    '$set': {
+                        **update_data,
+                        'updated_at': datetime.utcnow()
                     }
-                )
-            else:
-                # Update the fee status if it's not a Pending to Received transition
-                self.collection.update_one(
-                    {'student_id': student_id},
-                    {'$set': {**update_data, 'updated_at': datetime.utcnow()}}
-                )
+                }
+            )
 
         # Recalculate final fee if original fee or discount rate is updated
         if 'original_fee' in update_data or 'discount_rate' in update_data:
-            fee = self.collection.find_one({'student_id': student_id})
+            fee = current_record
             original_fee = update_data.get('original_fee', fee['original_fee'])
             discount_rate = update_data.get(
                 'discount_rate', fee['discount_rate'])
             final_fee = original_fee - (original_fee * discount_rate / 100)
 
-            # Update the final fee in the database
+            # Update the final fee
             self.collection.update_one(
                 {'student_id': student_id},
                 {'$set': {'final_fee': final_fee}}
